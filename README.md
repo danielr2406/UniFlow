@@ -9,12 +9,12 @@ Plataforma inteligente para la gestión académica y prevención del riesgo estu
 - Juan Cortes
 - Karen Hurtado
 - Angel Sabogal
-- 
+
 ## Tecnologías
-- Lenguaje: Python
-- Base de Datos: SQLite
-- IDE: Visual Studio Code
-- Interfaz: Consola
+- Lenguaje de programación: Java
+- Base de datos: MySQL
+- IDE: IntelliJ IDEA Community Edition
+- Tipo de interfaz: Aplicación de consola enriquecida
 
 ## Estructura
 - src/: Código fuente del proyecto.
