@@ -11,8 +11,7 @@ Plataforma inteligente para la gestión académica y prevención del riesgo estu
 - Angel Sabogal
 
 ## Tecnologías Seleccionadas
-- Lenguaje de programación: Python
-- Base de datos: SQLite
-- IDE: Visual Studio Code
-- Tipo de interfaz: Aplicación Web
-- Control de versiones: Git y GitHub
+- Lenguaje de programación: Java
+- Base de datos: MySQL
+- IDE: IntelliJ IDEA Community Edition
+- Tipo de interfaz: Aplicación de consola enriquecida
