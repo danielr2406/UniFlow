@@ -10,4 +10,12 @@ Plataforma inteligente para la gestión académica y prevención del riesgo estu
 - Karen Hurtado
 - Angel Sabogal
 - 
-Se crea archivo README inicial
+## Tecnologías
+- Lenguaje: Python
+- Base de Datos: SQLite
+- IDE: Visual Studio Code
+- Interfaz: Consola
+
+## Estructura
+- src/: Código fuente del proyecto.
+- docs/: Documentación del sistema.
