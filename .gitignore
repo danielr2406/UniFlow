@@ -1,0 +1,22 @@
+# Entornos virtuales
+venv/
+env/
+
+# Archivos compilados de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Configuración de VS Code
+.vscode/
+
+# Variables de entorno (datos sensibles)
+.env
+
+# Bases de datos locales
+*.db
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
