@@ -16,5 +16,3 @@ Plataforma inteligente para la gestión académica y prevención del riesgo estu
 - IDE: Visual Studio Code
 - Tipo de interfaz: Aplicación Web
 - Control de versiones: Git y GitHub
-
-Se crea archivo README inicial
