@@ -1,9 +1,7 @@
 import sqlite3
 
-
 def conectar_db():
     return sqlite3.connect("uniflow.db")
-
 
 def crear_tablas():
     conn = conectar_db()
@@ -16,10 +14,9 @@ def crear_tablas():
         promedio REAL
     )
     """)
-
+    
     conn.commit()
     conn.close()
-
 
 def mensaje_bienvenida():
     print("==========================================")
@@ -28,13 +25,8 @@ def mensaje_bienvenida():
     print("==========================================")
     print("Inicializando sistema...\n")
 
-
 def main():
     mensaje_bienvenida()
     crear_tablas()
     print("Base de datos configurada correctamente.")
     print("Sistema listo para operar.")
-
-
-if __name__ == "__main__":
-    main()
