@@ -1,42 +1,47 @@
 
 package uniflow.controller;
 
+import dao.DocenteDAO;
+import dao.UsuarioDAO;
 import uniflow.model.Estudiante;
-import uniflow.model.Estudiante_dao;
+
+import dao.EstudianteDAO;
 import uniflow.model.Usuario;
-import uniflow.model.Usuario_dao;
+import dao.UsuarioDAO;
 
 
 public class RegistroControllerr {
     
-     public boolean registrarUsuario(String nombre, String correo, String password, String rol, String carrera) {
+   public boolean registrarUsuario(String nombre, String correo, String password, String rol, String carrera) {
 
-        Usuario u = new Usuario();
-        u.setNombre(nombre);
-        u.setCorreo(correo);
-        u.setPassword(password);
-        u.setRol(rol);
+    Usuario u = new Usuario();
+    u.setNombre(nombre);
+    u.setCorreo(correo.trim());
+    u.setPassword(password.trim());
+    u.setRol(rol);
 
-        Usuario_dao dao = new Usuario_dao();
-        int idGenerado = dao.registrar(u);
+    UsuarioDAO dao = new UsuarioDAO();
+    int idGenerado = dao.registrar(u);
 
-        if (idGenerado > 0) {
+    if (idGenerado > 0) {
 
-            if (rol.equalsIgnoreCase("Estudiante")) {
+        if (rol.equalsIgnoreCase("Estudiante")) {
+            Estudiante e = new Estudiante();
+            e.setIdUsuario(idGenerado);
+            e.setCarrera(carrera);
 
-                Estudiante e = new Estudiante();
-                e.setIdUsuario(idGenerado);
-                e.setCarrera(carrera);
-
-                Estudiante_dao edao = new Estudiante_dao();
-                edao.registrar(e);
-            }
-
-            return true;
+            EstudianteDAO estudianteDAO = new EstudianteDAO();
+            estudianteDAO.registrar(e);
         }
 
-        return false;
+        if (rol.equalsIgnoreCase("Docente")) {
+            DocenteDAO docenteDAO = new DocenteDAO();
+            docenteDAO.registrar(idGenerado);
+        }
+
+        return true;
     }
 
-    
+    return false;
+}
 }

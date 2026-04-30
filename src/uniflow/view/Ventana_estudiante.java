@@ -1,8 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package uniflow.view;
+
+import dao.InscripcionDAO;
+import dao.MateriaDAO;
+import javax.swing.JOptionPane;
+import uniflow.controller.InscripcionController;
+import uniflow.controller.MateriaController;
+import uniflow.model.Inscripcion;
 
 /**
  *
@@ -12,13 +16,28 @@ public class Ventana_estudiante extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Ventana_estudiante.class.getName());
 
-    /**
-     * Creates new form Ventana_estudiante
-     */
-    public Ventana_estudiante() {
-        initComponents();
-          setLocationRelativeTo(null);
-    }
+   private int idEstudiante;
+   
+
+   public Ventana_estudiante(int idEstudiante) {
+    initComponents();
+    this.idEstudiante = idEstudiante;
+    
+    
+
+    // 👉 CONTROLADOR DE MATERIAS
+    MateriaController materiaController = new MateriaController();
+    materiaController.cargarMaterias(TBLvermaterias);
+
+    // 👉 CONTROLADOR DE INSCRIPCIONES
+    InscripcionController inscripcionController = new InscripcionController();
+    inscripcionController.cargarMisCursos(TBLvermateriaseSTUDIANTE, idEstudiante);
+
+   }
+public Ventana_estudiante() {
+    
+    setLocationRelativeTo(null);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,42 +48,529 @@ public class Ventana_estudiante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        btnsalir = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jEditorPane1 = new javax.swing.JEditorPane();
+        jPanel5 = new javax.swing.JPanel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        btnrefresar3 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        TBLvermateriaseSTUDIANTE = new javax.swing.JTable();
+        btnSalirCurso = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        btnrefresar2 = new javax.swing.JButton();
+        btnincribirse = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TBLvermaterias = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        JBsemestre = new javax.swing.JComboBox<>();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(204, 0, 255));
-        jLabel1.setFont(new java.awt.Font("Simplified Arabic Fixed", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 51));
-        jLabel1.setText("ESTUDIANTE");
-        jTabbedPane1.addTab("OPCIO1", jLabel1);
+        jPanel2.setBackground(new java.awt.Color(30, 41, 59));
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane1.setBackground(new java.awt.Color(204, 255, 204));
-        jScrollPane1.setViewportView(jEditorPane1);
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Angel");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 100, 40));
 
-        jTabbedPane1.addTab("tab2", jScrollPane1);
+        jButton1.setBackground(new java.awt.Color(59, 130, 246));
+        jButton1.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
+        jButton1.setText("Materias");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 160, 50));
+
+        jButton2.setBackground(new java.awt.Color(59, 130, 246));
+        jButton2.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
+        jButton2.setText("Actividades");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 170, 50));
+
+        jButton3.setBackground(new java.awt.Color(59, 130, 246));
+        jButton3.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
+        jButton3.setText("Calificaciones");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 560, 180, 50));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imangs/rutina-diaria.png"))); // NOI18N
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 150, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imangs/calificaciones-de-los-estudiantes.png"))); // NOI18N
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 150, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imangs/libro.png"))); // NOI18N
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, 110));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imangs/Estudiante.png"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 350, 690));
+
+        jPanel4.setBackground(new java.awt.Color(248, 252, 250));
+        jPanel4.setForeground(new java.awt.Color(204, 255, 51));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Bienvenido Estudinate");
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 430, 70));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imangs/usuario.png"))); // NOI18N
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 70, -1));
+
+        jButton4.setBackground(new java.awt.Color(16, 185, 129));
+        jButton4.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(51, 51, 51));
+        jButton4.setText("MI Perfil");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        jButton4.addActionListener(this::jButton4ActionPerformed);
+        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 170, 40));
+
+        btnsalir.setBackground(new java.awt.Color(239, 68, 68));
+        btnsalir.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
+        btnsalir.setForeground(new java.awt.Color(51, 51, 51));
+        btnsalir.setText("Salir");
+        btnsalir.addActionListener(this::btnsalirActionPerformed);
+        jPanel4.add(btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 140, 40));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 700, 190));
+
+        jPanel3.setBackground(new java.awt.Color(59, 130, 246));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imangs/Estudiante.png"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+
+        jTabbedPane1.addTab("0", jPanel3);
+
+        jPanel5.setBackground(new java.awt.Color(153, 0, 153));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane2MouseClicked(evt);
+            }
+        });
+
+        jPanel10.setBackground(new java.awt.Color(51, 51, 0));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel12.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel12MouseClicked(evt);
+            }
+        });
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton8.setBackground(new java.awt.Color(255, 153, 102));
+        jButton8.setFont(new java.awt.Font("Rockwell Condensed", 1, 18)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("Ver Mis Materias");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+        jButton8.addActionListener(this::jButton8ActionPerformed);
+        jPanel12.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 240, 100));
+
+        jButton9.setBackground(new java.awt.Color(102, 153, 255));
+        jButton9.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        jButton9.setText("Inscribir materias");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+        jPanel12.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 260, 100));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imangs/registro.png"))); // NOI18N
+        jPanel12.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 260, 310));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imangs/a-la-vista.png"))); // NOI18N
+        jPanel12.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 280, 270));
+
+        jPanel10.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 500));
+
+        jTabbedPane2.addTab("0", jPanel10);
+
+        jPanel9.setBackground(new java.awt.Color(59, 130, 246));
+        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel9MouseClicked(evt);
+            }
+        });
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnrefresar3.setBackground(new java.awt.Color(0, 102, 51));
+        btnrefresar3.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnrefresar3.setText("regresar");
+        btnrefresar3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnrefresar3MouseClicked(evt);
+            }
+        });
+        jPanel9.add(btnrefresar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 130, 40));
+
+        TBLvermateriaseSTUDIANTE.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        TBLvermateriaseSTUDIANTE.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nombre de materia", "Grupo", "Nombre de docente", "Smestre"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        TBLvermateriaseSTUDIANTE.setRowHeight(30);
+        TBLvermateriaseSTUDIANTE.setSelectionBackground(new java.awt.Color(102, 204, 255));
+        TBLvermateriaseSTUDIANTE.setSelectionForeground(new java.awt.Color(102, 102, 102));
+        jScrollPane4.setViewportView(TBLvermateriaseSTUDIANTE);
+        if (TBLvermateriaseSTUDIANTE.getColumnModel().getColumnCount() > 0) {
+            TBLvermateriaseSTUDIANTE.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        jPanel9.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 290));
+
+        btnSalirCurso.setBackground(new java.awt.Color(255, 51, 51));
+        btnSalirCurso.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnSalirCurso.setText("Salir del Curso");
+        btnSalirCurso.addActionListener(this::btnSalirCursoActionPerformed);
+        jPanel9.add(btnSalirCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 180, 50));
+
+        jTabbedPane2.addTab("1", jPanel9);
+
+        jPanel11.setBackground(new java.awt.Color(59, 130, 246));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnrefresar2.setBackground(new java.awt.Color(0, 102, 51));
+        btnrefresar2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnrefresar2.setText("regresar");
+        btnrefresar2.setCursor(new java.awt.Cursor(java.awt.Cursor.NE_RESIZE_CURSOR));
+        btnrefresar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnrefresar2MouseClicked(evt);
+            }
+        });
+        btnrefresar2.addActionListener(this::btnrefresar2ActionPerformed);
+        jPanel11.add(btnrefresar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 130, 40));
+
+        btnincribirse.setBackground(new java.awt.Color(255, 51, 51));
+        btnincribirse.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnincribirse.setText("Incribirse");
+        btnincribirse.setCursor(new java.awt.Cursor(java.awt.Cursor.E_RESIZE_CURSOR));
+        btnincribirse.addActionListener(this::btnincribirseActionPerformed);
+        jPanel11.add(btnincribirse, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
+
+        TBLvermaterias.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        TBLvermaterias.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nombre de materia", "Grupo", "Nombre de docente"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        TBLvermaterias.setRowHeight(30);
+        TBLvermaterias.setSelectionBackground(new java.awt.Color(102, 204, 255));
+        TBLvermaterias.setSelectionForeground(new java.awt.Color(102, 102, 102));
+        jScrollPane2.setViewportView(TBLvermaterias);
+        if (TBLvermaterias.getColumnModel().getColumnCount() > 0) {
+            TBLvermaterias.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 680, 290));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel6.setText("Selecione el semtre Actual ");
+        jPanel11.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        JBsemestre.setBackground(new java.awt.Color(0, 102, 51));
+        JBsemestre.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        JBsemestre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" }));
+        jPanel11.add(JBsemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 16, 120, 40));
+
+        jTabbedPane2.addTab("2", jPanel11);
+
+        jPanel5.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 700, 530));
+
+        jTabbedPane1.addTab("1", jPanel5);
+
+        jPanel6.setBackground(new java.awt.Color(59, 130, 246));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTabbedPane1.addTab("2", jPanel6);
+
+        jPanel7.setBackground(new java.awt.Color(59, 130, 246));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTabbedPane1.addTab("3", jPanel7);
+
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTabbedPane1.addTab("4", jPanel8);
+
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 700, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1036, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+          jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+          jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+          jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+          jTabbedPane1.setSelectedIndex(4);
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jTabbedPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseClicked
+        // TODO add your handling code here:
+        jTabbedPane2.setSelectedIndex(1);
+         // 🔥 RECARGAR DATOS AQUÍ
+    InscripcionController controller = new InscripcionController();
+    controller.cargarMisCursos(TBLvermateriaseSTUDIANTE, idEstudiante);
+    }//GEN-LAST:event_jTabbedPane2MouseClicked
+
+    private void btnrefresar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrefresar2MouseClicked
+        // TODO add your handling code here:
+        jTabbedPane2.setSelectedIndex(0);
+    }//GEN-LAST:event_btnrefresar2MouseClicked
+
+    private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
+        // TODO add your handling code here:
+        jTabbedPane2.setSelectedIndex(0);
+    }//GEN-LAST:event_jPanel9MouseClicked
+
+    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
+        // TODO add your handling code here:
+        Ventana_usuario Usuario = new Ventana_usuario();
+        Usuario.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnsalirActionPerformed
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane2.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // TODO add your handling code here:
+        jTabbedPane2.setSelectedIndex(2);
+        
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jPanel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel12MouseClicked
+
+    private void btnrefresar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrefresar3MouseClicked
+        // TODO add your handling code here:
+        jTabbedPane2.setSelectedIndex(0);
+    }//GEN-LAST:event_btnrefresar3MouseClicked
+
+    private void btnrefresar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrefresar2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnrefresar2ActionPerformed
+
+    private void btnincribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnincribirseActionPerformed
+        if (JBsemestre.getSelectedItem() == null) {
+    JOptionPane.showMessageDialog(this, "Selecciona un semestre");
+    return;
+}       
+        int fila = TBLvermaterias.getSelectedRow();
+
+    if (fila == -1) {
+        JOptionPane.showMessageDialog(this, "Selecciona una materia");
+        return;
+    }
+
+    String codigo = TBLvermaterias.getValueAt(fila, 1).toString();
+
+    MateriaDAO materiaDAO = new MateriaDAO();
+    int idMateria = materiaDAO.obtenerIdPorCodigo(codigo);
+
+    int idEstudiante = this.idEstudiante;
+
+    // 🔥 AQUÍ USAS EL COMBO
+    String semestre = JBsemestre.getSelectedItem().toString();
+
+    Inscripcion ins = new Inscripcion();
+    ins.setIdEstudiante(idEstudiante);
+    ins.setIdMateria(idMateria);
+    ins.setSemestre(semestre);
+
+    InscripcionDAO dao = new InscripcionDAO();
+    dao.registrar(ins);
+    JOptionPane.showMessageDialog(this, "Inscripción exitosa");
+
+
+//  RECARGAR TABLA
+InscripcionController controller = new InscripcionController();
+controller.cargarMisCursos(TBLvermateriaseSTUDIANTE, idEstudiante);
+
+    }//GEN-LAST:event_btnincribirseActionPerformed
+
+    private void btnSalirCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCursoActionPerformed
+        int fila = TBLvermateriaseSTUDIANTE.getSelectedRow();
+
+    if (fila == -1) {
+        JOptionPane.showMessageDialog(this, "Selecciona una materia");
+        return;
+    }
+
+    // 🔥 SACAR CODIGO DE LA TABLA (columna 1)
+    String codigo = TBLvermateriaseSTUDIANTE.getValueAt(fila, 1).toString();
+
+    // 🔥 CONVERTIR A idMateria
+    MateriaDAO materiaDAO = new MateriaDAO();
+    int idMateria = materiaDAO.obtenerIdPorCodigo(codigo);
+
+    if (idMateria == -1) {
+        JOptionPane.showMessageDialog(this, "Error al obtener la materia");
+        return;
+    }
+
+    int idEstudiante = this.idEstudiante;
+
+    // 🔥 ELIMINAR
+    InscripcionDAO dao = new InscripcionDAO();
+
+    if (dao.eliminar(idEstudiante, idMateria)) {
+        JOptionPane.showMessageDialog(this, "Saliste del curso");
+
+        // 🔄 RECARGAR TABLA
+        InscripcionController controller = new InscripcionController();
+        controller.cargarMisCursos(TBLvermateriaseSTUDIANTE, idEstudiante);
+
+    } else {
+        JOptionPane.showMessageDialog(this, "Error al salir del curso");
+    }
+
+            
+    }//GEN-LAST:event_btnSalirCursoActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,9 +598,46 @@ public class Ventana_estudiante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JComboBox<String> JBsemestre;
+    private javax.swing.JTable TBLvermaterias;
+    private javax.swing.JTable TBLvermateriaseSTUDIANTE;
+    private javax.swing.JButton btnSalirCurso;
+    private javax.swing.JButton btnincribirse;
+    private javax.swing.JButton btnrefresar2;
+    private javax.swing.JButton btnrefresar3;
+    private javax.swing.JButton btnsalir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     // End of variables declaration//GEN-END:variables
 }

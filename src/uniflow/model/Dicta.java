@@ -1,60 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+
 package uniflow.model;
 
-/**
- *
- * @author user
- */
+
 public class Dicta {
-    // Atributos
-    private int idNota;
-    private double valor;
-    private int idEstudiante; // FK
-    private int idTaller;     // FK
+
+    private int idDocente;
+    private int idMateria;
 
     public Dicta() {
     }
 
-    public Dicta(int idNota, double valor, int idEstudiante, int idTaller) {
-        this.idNota = idNota;
-        this.valor = valor;
-        this.idEstudiante = idEstudiante;
-        this.idTaller = idTaller;
+    public Dicta(int idDocente, int idMateria) {
+        this.idDocente = idDocente;
+        this.idMateria = idMateria;
     }
 
-    public int getIdNota() {
-        return idNota;
+    public int getIdDocente() {
+        return idDocente;
     }
 
-    public void setIdNota(int idNota) {
-        this.idNota = idNota;
+    public void setIdDocente(int idDocente) {
+        this.idDocente = idDocente;
     }
 
-    public double getValor() {
-        return valor;
+    public int getIdMateria() {
+        return idMateria;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setIdMateria(int idMateria) {
+        this.idMateria = idMateria;
     }
-
-    public int getIdEstudiante() {
-        return idEstudiante;
-    }
-
-    public void setIdEstudiante(int idEstudiante) {
-        this.idEstudiante = idEstudiante;
-    }
-
-    public int getIdTaller() {
-        return idTaller;
-    }
-
-    public void setIdTaller(int idTaller) {
-        this.idTaller = idTaller;
-    }
-    
 }
